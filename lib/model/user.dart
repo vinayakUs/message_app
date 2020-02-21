@@ -1,32 +1,33 @@
 class User {
   String userID;
-  String firstName;
+  String name;
   String email;
   String profilePictureURL;
-  String username;
+  String userName;
 
-  User(
-      {this.userID,
-      this.firstName,
-      this.email,
-      this.profilePictureURL,
-      this.username});
+  User({
+    this.userID,
+    this.name,
+    this.email,
+    this.profilePictureURL,
+    this.userName,
+  });
 
   User.fromUserMap(Map<String, dynamic> map) {
     userID = map['userID'];
-    firstName = map['firstName'];
+    name = map['name'];
     profilePictureURL = map['profilePictureURL'];
     email = map['email'];
-    username = map['username'];
+    userName = map['userName'];
   }
 
   Map<String, Object> toUserMap() {
     return {
       'userID': userID,
-      'firstName': firstName,
+      'firstName': name,
       'email': email,
       'profilePictureURL': profilePictureURL,
-      'username': username,
+      'userName': userName,
     };
   }
 }

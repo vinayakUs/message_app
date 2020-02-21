@@ -16,6 +16,7 @@ dependencies:
   provider: ^4.0.4
   firebase_storage: ^3.1.1
   cloud_firestore: ^0.13.2+1
+  flare_flutter: ^2.0.1
 
 dev_dependencies:
   flutter_test:
@@ -23,8 +24,8 @@ dev_dependencies:
   test:
 flutter:
   uses-material-design: true
-  # assets:
-  #  - images/a_dot_burr.jpeg
+  assets:
+    - images/
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

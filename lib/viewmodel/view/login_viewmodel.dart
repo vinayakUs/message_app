@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:message_app/constant.dart';
 import 'package:message_app/locator.dart';
 import 'package:message_app/model/basemodel.dart';
 import 'package:message_app/services/authentication_service.dart';
 import 'package:message_app/services/navigator_service.dart';
-import 'package:message_app/ui/view/login_view.dart';
 
 class LoginViewModel extends BaseModel {
   AuthenticationService _authenticationService;
@@ -19,7 +17,7 @@ class LoginViewModel extends BaseModel {
     setBusy(false);
     if (result is bool) {
       result == true
-          ? _navigatorService.navigateTo(homeViewRoute)
+          ? _navigatorService.goBack()
           : debugPrint("error while login ");
     } else {
       debugPrint(result.message);

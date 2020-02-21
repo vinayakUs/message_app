@@ -1,13 +1,22 @@
 import 'package:message_app/services/authentication_service.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'services/authentication_service.dart';
+import 'services/firestore_service.dart';
 
 List<SingleChildWidget> provider = [
   ...independentServices,
   ...dependentServices
 ];
 List<SingleChildWidget> independentServices = [
-  Provider(create: (_) => AuthenticationService())
+  Provider(create: (_) => FirestoreService()),
+//  Provider(create: (_) => AuthenticationService())
 ];
 
-List<SingleChildWidget> dependentServices = [];
+List<SingleChildWidget> dependentServices = [
+  ProxyProvider<FirestoreService, AuthenticationService>(
+    update: (context, fireStoreService, authenticationService) =>
+        AuthenticationService(fireStoreService: fireStoreService),
+  )
+];
+List<SingleChildWidget> uiConsumableProviders = [];

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:message_app/ui/widget/base_widget.dart';
 import 'package:message_app/ui/widget/busy_button.dart';
 import 'package:message_app/viewmodel/view/login_viewmodel.dart';
 import 'package:provider/provider.dart';
@@ -21,13 +22,12 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<LoginViewModel>.value(
-      value: LoginViewModel(authenticationService: Provider.of(context)),
-      child: Consumer<LoginViewModel>(
-        builder: (context, model, child) => SafeArea(
-          child: Scaffold(
-            body: Center(
-                child: Column(
+    return BaseWidget<LoginViewModel>(
+      viewModel: LoginViewModel(authenticationService: Provider.of(context)),
+      builder: (context, model, child) => SafeArea(
+        child: Scaffold(
+          body: Center(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 TextField(
@@ -46,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
                   busy: model.busy,
                 )
               ],
-            )),
+            ),
           ),
         ),
       ),
