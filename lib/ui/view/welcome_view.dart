@@ -13,10 +13,9 @@ class WelcomeView extends StatefulWidget {
 class _WelcomeViewState extends State<WelcomeView> {
   @override
   void initState() {
-print("init");
     super.initState();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

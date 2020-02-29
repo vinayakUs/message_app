@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         home: StartUpView(),
         navigatorKey: locator.get<NavigatorService>().navigatorkey,
-        onGenerateRoute: (routeSettings) {
+        onGenerateRoute: (RouteSettings routeSettings) {
           switch (routeSettings.name) {
             case welcomeViewRoute:
               return MaterialPageRoute(builder: (context) => WelcomeView());

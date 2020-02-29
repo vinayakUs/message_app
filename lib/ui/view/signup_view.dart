@@ -38,7 +38,6 @@ class _SignUpViewState extends State<SignUpView> {
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(hintText: "email"),
-
                 ),
                 TextField(
                   controller: passwordController,

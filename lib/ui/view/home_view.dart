@@ -1,5 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:message_app/ui/widget/base_widget.dart';
+import 'package:message_app/viewmodel/view/home_viewmodel.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -9,17 +11,21 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: <Widget>[
-            RaisedButton(
-              onPressed: () {
-                FirebaseAuth.instance.signOut();
-                Navigator.of(context);
-              },
-            )
-          ],
+    return BaseWidget<HomeViewModel>(
+      viewModel: HomeViewModel(
+        authenticationService: Provider.of(context),
+      ),
+      builder: (context, model, child) => SafeArea(
+        child: Scaffold(
+          body: Column(
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  model.getcurr();
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

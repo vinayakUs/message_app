@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:message_app/ui/widget/base_widget.dart';
+import 'package:message_app/ui/widget/busy_button.dart';
 import 'package:message_app/viewmodel/view/userdetails_viewmodel.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ class _UserDetailsViewState extends State<UserDetailsView> {
 
   @override
   Widget build(BuildContext context) {
-    return BaseWidget(
+    return BaseWidget<UserDetailsViewModel>(
       viewModel: UserDetailsViewModel(
         fireStoreService: Provider.of(context),
         authenticationService: Provider.of(context),
@@ -32,10 +33,15 @@ class _UserDetailsViewState extends State<UserDetailsView> {
                 controller: _userNameController,
                 decoration: InputDecoration(hintText: "Username"),
               ),
-              TextField(),
-              FlatButton(
-                onPressed: model.finish,
-                child: Text("Finish"),
+              BusyButton(
+                child: Text("finish"),
+                busy: model.busy,
+                onPressed: () {
+                  model.finish(
+                    name: _nameController.text,
+                    userName: _userNameController.text,
+                  );
+                },
               ),
             ],
           ),

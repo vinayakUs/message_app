@@ -14,10 +14,17 @@ class FirestoreService {
     }
   }
 
+  String _temp;
+  String get temp => _temp;
+  set temp(val) {
+    _temp = val;
+  }
+
   Future isUserNameRegistered(String username) async {
     QuerySnapshot snap = await _documentReference
-        .where('userName', isEqualTo: username)
+        .where('username', isEqualTo: username)
         .getDocuments();
+    print("documet ${snap.documents.length}");
     return snap.documents.length != 0;
   }
 

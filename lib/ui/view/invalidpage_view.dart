@@ -8,6 +8,10 @@ class InvalidPage extends StatefulWidget {
 class _InvalidPageState extends State<InvalidPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Container(
+        child: Text("invalid Screen"),
+      ),
+    );
   }
 }

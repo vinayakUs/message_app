@@ -3,14 +3,14 @@ class User {
   String name;
   String email;
   String profilePictureURL;
-  String userName;
+  String username;
 
   User({
     this.userID,
     this.name,
     this.email,
     this.profilePictureURL,
-    this.userName,
+    this.username,
   });
 
   User.fromUserMap(Map<String, dynamic> map) {
@@ -18,7 +18,7 @@ class User {
     name = map['name'];
     profilePictureURL = map['profilePictureURL'];
     email = map['email'];
-    userName = map['userName'];
+    username = map['username'];
   }
 
   Map<String, Object> toUserMap() {
@@ -27,7 +27,7 @@ class User {
       'firstName': name,
       'email': email,
       'profilePictureURL': profilePictureURL,
-      'userName': userName,
+      'username': username,
     };
   }
 }

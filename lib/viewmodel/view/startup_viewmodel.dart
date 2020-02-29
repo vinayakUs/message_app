@@ -14,6 +14,7 @@ enum Status {
 class StartUpViewModel extends BaseModel {
   final AuthenticationService _authenticationService;
   final FirestoreService _fireStoreService;
+
   StartUpViewModel({
     @required AuthenticationService authenticationService,
     @required FirestoreService fireStoreService,
@@ -24,15 +25,15 @@ class StartUpViewModel extends BaseModel {
     Stream<FirebaseUser> user = _authenticationService.onAuthChange;
     await for (var firebaseUser in user) {
       if (firebaseUser != null) {
-
-        _authenticationService.setFirebaseUser(firebaseUser);
         var hasData = await _fireStoreService.userHasData(firebaseUser.uid);
-        if (hasData is bool) {
 
+        if (hasData is bool) {
           if (hasData) {
+            _authenticationService.setFirebaseUser(firebaseUser);
             _authenticationService.populateCurrentUser();
             yield Status.hasUserData;
           } else {
+            _authenticationService.setFirebaseUser(firebaseUser);
             yield Status.notUserData;
           }
         }

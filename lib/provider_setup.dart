@@ -6,17 +6,19 @@ import 'services/firestore_service.dart';
 
 List<SingleChildWidget> provider = [
   ...independentServices,
-  ...dependentServices
+  ...dependentServices,
+  ...uiConsumableProviders,
 ];
 List<SingleChildWidget> independentServices = [
   Provider(create: (_) => FirestoreService()),
-//  Provider(create: (_) => AuthenticationService())
 ];
 
 List<SingleChildWidget> dependentServices = [
-  ProxyProvider<FirestoreService, AuthenticationService>(
-    update: (context, fireStoreService, authenticationService) =>
-        AuthenticationService(fireStoreService: fireStoreService),
-  )
+  ProxyProvider0<AuthenticationService>(
+    update: (context, authenticationService) {
+      final a = Provider.of<FirestoreService>(context);
+      return AuthenticationService(fireStoreService: a);
+    },
+  ),
 ];
 List<SingleChildWidget> uiConsumableProviders = [];

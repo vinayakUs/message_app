@@ -4,7 +4,6 @@ import 'package:message_app/model/basemodel.dart';
 import 'package:message_app/services/authentication_service.dart';
 import 'package:message_app/services/navigator_service.dart';
 
-
 class SignUpViewModel extends BaseModel {
   final AuthenticationService _authenticationService;
   final NavigatorService _navigatorService = locator.get<NavigatorService>();
@@ -17,19 +16,20 @@ class SignUpViewModel extends BaseModel {
     @required String email,
     @required String password,
   }) async {
-    setBusy(true);
-    var result = await _authenticationService.signUpWithEmail(
-      email: email,
-      password: password,
-    );
-    setBusy(false);
-    if (result is bool) {
-      result == true
-          ? naigateto()
-          : debugPrint("unknown error while registering");
-    } else {
-      debugPrint(result.message);
-    }
+    _navigatorService.goBack();
+     setBusy(true);
+     var result = await _authenticationService.signUpWithEmail(
+       email: email,
+       password: password,
+     );
+     setBusy(false);
+     if (result is bool) {
+       result == true
+           ? naigateto()
+           : debugPrint("unknown error while registering");
+     } else {
+       debugPrint(result.message);
+     }
   }
 
   void naigateto() {
