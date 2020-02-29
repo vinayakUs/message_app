@@ -25,14 +25,14 @@ class SignUpViewModel extends BaseModel {
      setBusy(false);
      if (result is bool) {
        result == true
-           ? naigateto()
+           ? navigateTo()
            : debugPrint("unknown error while registering");
      } else {
        debugPrint(result.message);
      }
   }
 
-  void naigateto() {
+  void navigateTo() {
     _navigatorService.goBack();
   }
 }
