@@ -1,15 +1,13 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:message_app/locator.dart';
 import 'package:message_app/model/user.dart';
 import 'package:message_app/services/firestore_service.dart';
 
 class AuthenticationService {
   final FirebaseAuth _fireBaseAuth = FirebaseAuth.instance;
-  FirestoreService _fireStoreService;
-
-  AuthenticationService({@required FirestoreService fireStoreService})
-      : _fireStoreService = fireStoreService;
+  FirestoreService _fireStoreService=locator.get<FirestoreService>();
 
   User _currentUser;
   User get currentUser => _currentUser;

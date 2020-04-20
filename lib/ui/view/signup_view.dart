@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:message_app/ui/widget/base_widget.dart';
 import 'package:message_app/ui/widget/busy_button.dart';
 import 'package:message_app/viewmodel/view/signup_viewmodel.dart';
-import 'package:provider/provider.dart';
 
 class SignUpView extends StatefulWidget {
   @override
@@ -28,7 +27,7 @@ class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget<SignUpViewModel>(
-      viewModel: SignUpViewModel(authenticationService: Provider.of(context)),
+      viewModel: SignUpViewModel(),
       builder: (context, model, child) => SafeArea(
         child: Scaffold(
           body: Center(

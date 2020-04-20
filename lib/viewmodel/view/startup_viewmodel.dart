@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:message_app/locator.dart';
 import 'package:message_app/model/basemodel.dart';
 import 'package:message_app/services/authentication_service.dart';
 import 'package:message_app/services/firestore_service.dart';
@@ -12,14 +12,9 @@ enum Status {
 }
 
 class StartUpViewModel extends BaseModel {
-  final AuthenticationService _authenticationService;
-  final FirestoreService _fireStoreService;
+  final AuthenticationService _authenticationService=locator.get<AuthenticationService>();
+  final FirestoreService _fireStoreService=locator.get<FirestoreService>();
 
-  StartUpViewModel({
-    @required AuthenticationService authenticationService,
-    @required FirestoreService fireStoreService,
-  })  : _authenticationService = authenticationService,
-        _fireStoreService = fireStoreService;
 
   Stream startUpLogic() async* {
     Stream<FirebaseUser> user = _authenticationService.onAuthChange;

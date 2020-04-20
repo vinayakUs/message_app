@@ -5,12 +5,8 @@ import 'package:message_app/services/authentication_service.dart';
 import 'package:message_app/services/navigator_service.dart';
 
 class SignUpViewModel extends BaseModel {
-  final AuthenticationService _authenticationService;
+  final AuthenticationService _authenticationService=locator.get<AuthenticationService>();
   final NavigatorService _navigatorService = locator.get<NavigatorService>();
-
-  SignUpViewModel({
-    @required AuthenticationService authenticationService,
-  }) : _authenticationService = authenticationService;
 
   Future signUp({
     @required String email,

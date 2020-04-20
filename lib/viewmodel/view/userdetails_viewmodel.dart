@@ -11,14 +11,9 @@ import 'package:message_app/services/navigator_service.dart';
 class UserDetailsViewModel extends BaseModel {
 
   FirestoreService _fireStoreService;
-  AuthenticationService _authenticationService;
+  final AuthenticationService _authenticationService=locator.get<AuthenticationService>();
   NavigatorService _navigatorService = locator.get<NavigatorService>();
 
-  UserDetailsViewModel({
-    @required FirestoreService fireStoreService,
-    @required AuthenticationService authenticationService,
-  })  : _fireStoreService = fireStoreService,
-        _authenticationService = authenticationService;
 
   void finish({
     @required String name,

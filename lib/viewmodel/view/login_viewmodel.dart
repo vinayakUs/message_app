@@ -5,10 +5,8 @@ import 'package:message_app/services/authentication_service.dart';
 import 'package:message_app/services/navigator_service.dart';
 
 class LoginViewModel extends BaseModel {
-  AuthenticationService _authenticationService;
+  AuthenticationService _authenticationService=locator.get<AuthenticationService>();
   NavigatorService _navigatorService = locator.get<NavigatorService>();
-  LoginViewModel({@required AuthenticationService authenticationService})
-      : _authenticationService = authenticationService;
 
   Future login({@required String email, @required String password}) async {
     setBusy(true);

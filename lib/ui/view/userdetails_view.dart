@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:message_app/ui/widget/base_widget.dart';
 import 'package:message_app/ui/widget/busy_button.dart';
 import 'package:message_app/viewmodel/view/userdetails_viewmodel.dart';
-import 'package:provider/provider.dart';
 
 class UserDetailsView extends StatefulWidget {
   @override
@@ -16,10 +15,7 @@ class _UserDetailsViewState extends State<UserDetailsView> {
   @override
   Widget build(BuildContext context) {
     return BaseWidget<UserDetailsViewModel>(
-      viewModel: UserDetailsViewModel(
-        fireStoreService: Provider.of(context),
-        authenticationService: Provider.of(context),
-      ),
+      viewModel: UserDetailsViewModel(),
       builder: (context, model, child) => SafeArea(
         child: Scaffold(
           body: Column(
