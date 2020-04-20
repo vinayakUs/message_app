@@ -36,6 +36,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                   locator.get<NavigatorService>().navigateTo(loginViewRoute);
                 },
               ),
+              
             ],
           ),
         ),

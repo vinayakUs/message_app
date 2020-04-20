@@ -1,9 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:logger/logger.dart';
 import 'package:message_app/constant.dart';
 import 'package:message_app/locator.dart';
-import 'package:message_app/logger.dart';
 import 'package:message_app/model/basemodel.dart';
 import 'package:message_app/model/user.dart';
 import 'package:message_app/services/authentication_service.dart';
@@ -11,7 +9,6 @@ import 'package:message_app/services/firestore_service.dart';
 import 'package:message_app/services/navigator_service.dart';
 
 class UserDetailsViewModel extends BaseModel {
-  final logger = Logger(printer: SimpleLogPrinter('userdetails viewmodel'));
 
   FirestoreService _fireStoreService;
   AuthenticationService _authenticationService;

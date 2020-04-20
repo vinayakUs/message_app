@@ -25,6 +25,7 @@ class StartUpViewModel extends BaseModel {
     Stream<FirebaseUser> user = _authenticationService.onAuthChange;
     await for (var firebaseUser in user) {
       if (firebaseUser != null) {
+        print("stream data fired");
         var hasData = await _fireStoreService.userHasData(firebaseUser.uid);
 
         if (hasData is bool) {

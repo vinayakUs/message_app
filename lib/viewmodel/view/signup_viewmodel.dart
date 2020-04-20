@@ -16,7 +16,6 @@ class SignUpViewModel extends BaseModel {
     @required String email,
     @required String password,
   }) async {
-    _navigatorService.goBack();
      setBusy(true);
      var result = await _authenticationService.signUpWithEmail(
        email: email,

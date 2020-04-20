@@ -29,24 +29,25 @@ class _StartUpViewState extends State<StartUpView> {
         stream: model.startUpLogic(),
         builder: (context, snapshot) {
           print("snap data ${snapshot.data}");
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Container(
-              child: FlareActor(
-                'images/splash.flr',
-                fit: BoxFit.scaleDown,
-                animation: "Untitled",
-              ),
-              decoration: BoxDecoration(
-                color: Color(0xFF247BA0),
-              ),
-            );
-          } else if (snapshot.data == Status.hasUserData) {
+          // if (snapshot.connectionState == ConnectionState.waiting) {
+          if (snapshot.data == Status.hasUserData) {
             return HomeView();
           } else if (snapshot.data == Status.notUserData) {
             return UserDetailsView();
           } else if (snapshot.data == Status.noUser) {
+            print("no user called");
             return WelcomeView();
           }
+          return Container(
+            child: FlareActor(
+              'images/splash.flr',
+              fit: BoxFit.scaleDown,
+              animation: "Untitled",
+            ),
+            decoration: BoxDecoration(
+              color: Color(0xFF247BA0),
+            ),
+          );
         },
       ),
     );

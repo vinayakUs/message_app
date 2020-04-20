@@ -13,7 +13,7 @@ class NavigatorService {
     return _navigatorkey.currentState.pushReplacementNamed(routeName);
   }
 
-  bool goBack() {
+  goBack() {
     return _navigatorkey.currentState.pop();
   }
 

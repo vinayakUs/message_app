@@ -59,4 +59,7 @@ class AuthenticationService {
       _currentUser = User.fromUserMap(user);
     }
   }
+  void signOut(){
+    _fireBaseAuth.signOut();
+  }
 }
