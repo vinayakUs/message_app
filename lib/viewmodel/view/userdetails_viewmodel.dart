@@ -10,7 +10,7 @@ import 'package:message_app/services/navigator_service.dart';
 
 class UserDetailsViewModel extends BaseModel {
 
-  FirestoreService _fireStoreService;
+  FirestoreService _fireStoreService=locator.get<FirestoreService>();
   final AuthenticationService _authenticationService=locator.get<AuthenticationService>();
   NavigatorService _navigatorService = locator.get<NavigatorService>();
 
@@ -20,6 +20,7 @@ class UserDetailsViewModel extends BaseModel {
     @required String userName,
   }) async {
     setBusy(true);
+    print(userName);
     var res = await _fireStoreService.isUserNameRegistered(userName);
     print(res);
     if (!res) {

@@ -19,7 +19,6 @@ class _HomeViewState extends State<HomeView> {
               RaisedButton(
                 onPressed: () {
                   model.getcurr();
-                  Navigator.pop(context);
                 },
               )
             ],
