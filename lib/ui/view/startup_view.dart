@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:message_app/ui/view/home_view.dart';
 import 'package:message_app/ui/view/userdetails_view.dart';
 import 'package:message_app/ui/view/welcome_view.dart';
+import 'package:message_app/ui/viewmodel/startup_viewmodel.dart';
 import 'package:message_app/ui/widget/base_widget.dart';
-import 'package:message_app/viewmodel/view/startup_viewmodel.dart';
 
 class StartUpView extends StatefulWidget {
   @override
@@ -25,7 +25,6 @@ class _StartUpViewState extends State<StartUpView> {
         stream: model.startUpLogic(),
         builder: (context, snapshot) {
           print("snap data ${snapshot.data}");
-          // if (snapshot.connectionState == ConnectionState.waiting) {
           if (snapshot.data == Status.hasUserData) {
             return HomeView();
           } else if (snapshot.data == Status.notUserData) {

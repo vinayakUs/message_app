@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:message_app/ui/widget/base_widget.dart';
 import 'package:message_app/ui/widget/busy_button.dart';
-import 'package:message_app/viewmodel/view/signup_viewmodel.dart';
+import 'file:///D:/message_app/lib/ui/viewmodel/signup_viewmodel.dart';
 
 class SignUpView extends StatefulWidget {
   @override

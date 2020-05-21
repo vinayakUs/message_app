@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:message_app/constant.dart';
+import 'package:message_app/app/router.gr.dart';
 import 'package:message_app/locator.dart';
 import 'package:message_app/model/basemodel.dart';
 import 'package:message_app/model/user.dart';
@@ -20,9 +20,7 @@ class UserDetailsViewModel extends BaseModel {
     @required String userName,
   }) async {
     setBusy(true);
-    print(userName);
     var res = await _fireStoreService.isUserNameRegistered(userName);
-    print(res);
     if (!res) {
       FirebaseUser firebaseUser = _authenticationService.firebaseUser;
       await _fireStoreService.createUser(User(
@@ -33,7 +31,7 @@ class UserDetailsViewModel extends BaseModel {
         profilePictureURL: "",
       ));
       setBusy(false);
-      _navigatorService.navigateTo(homeViewRoute);
+      _navigatorService.navigateTo(Routes.homeViewRoute);
     }
   }
 }

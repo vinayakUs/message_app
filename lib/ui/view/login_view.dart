@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:message_app/ui/widget/base_widget.dart';
 import 'package:message_app/ui/widget/busy_button.dart';
-import 'package:message_app/viewmodel/view/login_viewmodel.dart';
+import 'file:///D:/message_app/lib/ui/viewmodel/login_viewmodel.dart';
 
 class LoginView extends StatefulWidget {
   @override

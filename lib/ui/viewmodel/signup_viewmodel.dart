@@ -20,7 +20,7 @@ class SignUpViewModel extends BaseModel {
      setBusy(false);
      if (result is bool) {
        result == true
-           ? navigateTo()
+           ? _navigatorService.goBack()
            : debugPrint("unknown error while registering");
      } else {
        debugPrint(result.message);
